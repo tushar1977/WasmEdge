@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2019-2024 Second State INC
 
 #include "wasmedge/wasmedge.h"
+#include "ast/instruction.h"
+#include <iostream>
 
 #if defined(_WIN32) || defined(_WIN64) || defined(__WIN32__) ||                \
     defined(__TOS_WIN__) || defined(__WINDOWS__)
@@ -15,6 +17,10 @@ int wmain(int Argc, const wchar_t *Argv[]) {
 }
 #else
 int main(int Argc, const char *Argv[]) {
+
+  using namespace WasmEdge::AST;
+  Instruction::printSizeInfo();
+
   return WasmEdge_Driver_UniTool(Argc, Argv);
 }
 #endif

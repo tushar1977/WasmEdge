@@ -15,9 +15,12 @@
 
 #include "common/enum_ast.hpp"
 #include "common/span.h"
+#include "common/spdlog.h"
 #include "common/types.h"
 
 #include <algorithm>
+#include <spdlog/common.h>
+#include <spdlog/spdlog.h>
 #include <vector>
 
 namespace WasmEdge {
@@ -108,6 +111,13 @@ public:
     return *this;
   }
 
+  static void printSizeInfo() {
+    spdlog::info("Instruction Size: {}", sizeof(Instruction));
+    spdlog::info("Data size: {}", sizeof(Inner));
+    spdlog::info("Opcode size {}", sizeof(OpCode));
+    spdlog::info("Offset size {}", sizeof(uint32_t));
+    spdlog::info("Flags size {}", sizeof(Flags));
+  }
   /// Getter of OpCode.
   OpCode getOpCode() const noexcept { return Code; }
 
