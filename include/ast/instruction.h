@@ -281,6 +281,7 @@ private:
 
   /// \name Data of instructions.
   /// @{
+public:
   union Inner {
     // Type 1: BlockType, JumpEnd, and JumpElse.
     struct {
