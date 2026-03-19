@@ -1,0 +1,50 @@
+❌️ No symbol table is loaded.  Use the "file" command.
+❌️ touch.gdb:15: Error in sourced command file:
+No executable file specified.
+Use the "file" or "exec-file" command.
+Breakpoint 1 at 0x1160: file /home/tushar/WasmEdge/tools/wasmedge/wasmedge.cpp, line 19.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+
+Breakpoint 1, main (Argc=4, Argv=0x7fffffffd988) at /home/tushar/WasmEdge/tools/wasmedge/wasmedge.cpp:19
+⚠️ warning: Source file is more recent than executable.
+19	int main(int Argc, const char *Argv[]) {
+❌️ No compiled code for line 225 in file "instruction.cpp".
+❌️ No compiled code for line 224 in file "instruction.cpp".
+Breakpoint 2 at 0x7ffff7c73c60: WasmEdge::AST::Instruction::Instruction(WasmEdge::AST::Instruction const&). (4 locations)
+Continuing.
+
+Breakpoint 2.1, WasmEdge::AST::Instruction::Instruction (this=<optimized out>, Instr=..., this=<optimized out>, Instr=...) at /home/tushar/WasmEdge/include/ast/instruction.h:74
+⚠️ warning: Source file is more recent than executable.
+74	  Instruction(const Instruction &Instr) noexcept
+#0  WasmEdge::AST::Instruction::Instruction (this=<optimized out>, Instr=..., this=<optimized out>, Instr=...) at /home/tushar/WasmEdge/include/ast/instruction.h:74
+#1  0x00007ffff7ccd131 in std::_Construct<WasmEdge::AST::Instruction, WasmEdge::AST::Instruction const&> (__p=<optimized out>) at /usr/include/c++/15.2.1/bits/stl_construct.h:133
+#2  std::__do_uninit_copy<__gnu_cxx::__normal_iterator<WasmEdge::AST::Instruction const*, std::vector<WasmEdge::AST::Instruction, std::allocator<WasmEdge::AST::Instruction> > >, __gnu_cxx::__normal_iterator<WasmEdge::AST::Instruction const*, std::vector<WasmEdge::AST::Instruction, std::allocator<WasmEdge::AST::Instruction> > >, WasmEdge::AST::Instruction*> (__first=..., __last=..., __result=<optimized out>) at /usr/include/c++/15.2.1/bits/stl_uninitialized.h:145
+#3  std::uninitialized_copy<__gnu_cxx::__normal_iterator<WasmEdge::AST::Instruction const*, std::vector<WasmEdge::AST::Instruction, std::allocator<WasmEdge::AST::Instruction> > >, WasmEdge::AST::Instruction*> (__first=..., __last=..., __result=<optimized out>, __first=..., __last=..., __result=<optimized out>) at /usr/include/c++/15.2.1/bits/stl_uninitialized.h:266
+#4  std::__uninitialized_copy_a<__gnu_cxx::__normal_iterator<WasmEdge::AST::Instruction const*, std::vector<WasmEdge::AST::Instruction, std::allocator<WasmEdge::AST::Instruction> > >, __gnu_cxx::__normal_iterator<WasmEdge::AST::Instruction const*, std::vector<WasmEdge::AST::Instruction, std::allocator<WasmEdge::AST::Instruction> > >, WasmEdge::AST::Instruction*, WasmEdge::AST::Instruction> (__first=..., __last=..., __result=0x5555555edf10) at /usr/include/c++/15.2.1/bits/stl_uninitialized.h:637
+#5  std::vector<WasmEdge::AST::Instruction, std::allocator<WasmEdge::AST::Instruction> >::_M_allocate_and_copy<__gnu_cxx::__normal_iterator<WasmEdge::AST::Instruction const*, std::vector<WasmEdge::AST::Instruction, std::allocator<WasmEdge::AST::Instruction> > > > (this=0x5555555edce0, __n=<optimized out>, __first=..., __last=...) at /usr/include/c++/15.2.1/bits/stl_vector.h:1912
+#6  std::vector<WasmEdge::AST::Instruction, std::allocator<WasmEdge::AST::Instruction> >::operator= (this=0x5555555edce0, __x=std::vector of length 14, capacity 16 = {...}) at /usr/include/c++/15.2.1/bits/vector.tcc:238
+#7  operator()<std::vector<WasmEdge::AST::Instruction> > (__closure=<optimized out>, Instrs=std::vector of length 14, capacity 16 = {...}) at /home/tushar/WasmEdge/lib/loader/ast/expression.cpp:19
+#8  std::__invoke_impl<cxx20::expected<void, WasmEdge::ErrCode>, WasmEdge::Loader::Loader::loadExpression(WasmEdge::AST::Expression&, std::optional<long unsigned int>)::<lambda(auto:36)>, std::vector<WasmEdge::AST::Instruction, std::allocator<WasmEdge::AST::Instruction> > > (__f=...) at /usr/include/c++/15.2.1/bits/invoke.h:63
+#9  std::__invoke<WasmEdge::Loader::Loader::loadExpression(WasmEdge::AST::Expression&, std::optional<long unsigned int>)::<lambda(auto:36)>, std::vector<WasmEdge::AST::Instruction, std::allocator<WasmEdge::AST::Instruction> > > (__fn=...) at /usr/include/c++/15.2.1/bits/invoke.h:99
+#10 std::invoke<WasmEdge::Loader::Loader::loadExpression(WasmEdge::AST::Expression&, std::optional<long unsigned int>)::<lambda(auto:36)>, std::vector<WasmEdge::AST::Instruction, std::allocator<WasmEdge::AST::Instruction> > > (__fn=...) at /usr/include/c++/15.2.1/functional:123
+#11 cxx20::detail::expected_and_then_impl<cxx20::expected<std::vector<WasmEdge::AST::Instruction>, WasmEdge::ErrCode>, WasmEdge::Loader::Loader::loadExpression(WasmEdge::AST::Expression&, std::optional<long unsigned int>)::<lambda(auto:36)> > (f=..., exp=...) at /home/tushar/WasmEdge/include/experimental/expected.hpp:1070
+#12 cxx20::expected<std::vector<WasmEdge::AST::Instruction, std::allocator<WasmEdge::AST::Instruction> >, WasmEdge::ErrCode>::and_then<WasmEdge::Loader::Loader::loadExpression(WasmEdge::AST::Expression&, std::optional<long unsigned int>)::<lambda(auto:36)> > (this=0x7fffffffa5a0, f=...) at /home/tushar/WasmEdge/include/experimental/expected.hpp:1664
+#13 WasmEdge::Loader::Loader::loadExpression (this=this@entry=0x7fffffffba30, Expr=..., SizeBound=std::optional = {...}) at /home/tushar/WasmEdge/lib/loader/ast/expression.cpp:21
+#14 0x00007ffff7cd0148 in WasmEdge::Loader::Loader::loadSegment (this=0x7fffffffba30, CodeSeg=...) at /home/tushar/WasmEdge/include/ast/segment.h:30
+#15 operator() (__closure=<optimized out>, CodeSeg=...) at /home/tushar/WasmEdge/lib/loader/ast/section.cpp:172
+#16 WasmEdge::Loader::Loader::loadVec<WasmEdge::AST::CodeSection, WasmEdge::AST::CodeSegment, WasmEdge::Loader::Loader::loadSection(WasmEdge::AST::CodeSection&)::<lambda()>::<lambda(WasmEdge::AST::CodeSegment&)> > (this=0x7fffffffba30, Vec=..., Func=...) at /home/tushar/WasmEdge/include/loader/loader.h:321
+#17 WasmEdge::Loader::Loader::loadSectionContentVec<WasmEdge::AST::CodeSection, WasmEdge::Loader::Loader::loadSection(WasmEdge::AST::CodeSection&)::<lambda()>::<lambda(WasmEdge::AST::CodeSegment&)> > (this=0x7fffffffba30, Sec=..., Func=...) at /home/tushar/WasmEdge/include/loader/loader.h:361
+#18 operator() (__closure=<optimized out>) at /home/tushar/WasmEdge/lib/loader/ast/section.cpp:173
+#19 WasmEdge::Loader::Loader::loadSectionContent<WasmEdge::AST::CodeSection, WasmEdge::Loader::Loader::loadSection(WasmEdge::AST::CodeSection&)::<lambda()> > (this=0x7fffffffba30, Sec=..., Func=...) at /home/tushar/WasmEdge/include/loader/loader.h:348
+#20 WasmEdge::Loader::Loader::loadSection (this=0x7fffffffba30, Sec=...) at /home/tushar/WasmEdge/lib/loader/ast/section.cpp:174
+#21 0x00007ffff7cc2c19 in WasmEdge::Loader::Loader::loadModule(WasmEdge::AST::Module&, std::optional<unsigned long>) [clone .isra.0] (this=this@entry=0x7fffffffba30, Mod=..., Bound=...) at /home/tushar/WasmEdge/lib/loader/ast/module.cpp:98
+#22 0x00007ffff7cd61d3 in WasmEdge::Loader::Loader::loadUnit (this=this@entry=0x7fffffffba30) at /home/tushar/WasmEdge/lib/loader/loader.cpp:204
+#23 0x00007ffff7cd8839 in WasmEdge::Loader::Loader::parseWasmUnit (this=0x7fffffffba30, FilePath=filesystem::path "/home/tushar/WasmEdge/gsoc_test/test.wasm" = {...}) at /home/tushar/WasmEdge/lib/loader/loader.cpp:125
+#24 0x00007ffff7c89539 in WasmEdge::VM::VM::unsafeLoadWasm (this=0x7fffffffb860, Path=...) at /home/tushar/WasmEdge/lib/vm/vm.cpp:359
+#25 0x00007ffff7c7496a in WasmEdge::VM::VM::loadWasm (this=0x7fffffffb860, Path=filesystem::path "/home/tushar/WasmEdge/gsoc_test/test.wasm" = {...}) at /home/tushar/WasmEdge/include/vm/vm.h:124
+#26 WasmEdge::Driver::Tool (Opt=...) at /home/tushar/WasmEdge/lib/driver/runtimeTool.cpp:496
+#27 0x00007ffff7c6cfb8 in WasmEdge::Driver::UniTool (Argc=4, Argv=<optimized out>, ToolSelect=<optimized out>) at /home/tushar/WasmEdge/lib/driver/uniTool.cpp:77
+#28 0x00007fffed0366c1 in __libc_start_call_main (main=main@entry=0x555555555160 <main(int, char const**)>, argc=argc@entry=4, argv=argv@entry=0x7fffffffd988) at ../sysdeps/nptl/libc_start_call_main.h:59
+#29 0x00007fffed0367f9 in __libc_start_main_impl (main=0x555555555160 <main(int, char const**)>, argc=4, argv=0x7fffffffd988, init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=0x7fffffffd978) at ../csu/libc-start.c:360
+#30 0x0000555555555255 in _start ()

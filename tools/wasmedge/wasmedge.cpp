@@ -18,9 +18,6 @@ int wmain(int Argc, const wchar_t *Argv[]) {
 #else
 int main(int Argc, const char *Argv[]) {
 
-  using namespace WasmEdge::AST;
-  Instruction::printSizeInfo();
-
   return WasmEdge_Driver_UniTool(Argc, Argv);
 }
 #endif

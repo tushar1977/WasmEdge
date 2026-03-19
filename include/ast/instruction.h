@@ -111,13 +111,6 @@ public:
     return *this;
   }
 
-  static void printSizeInfo() {
-    spdlog::info("Instruction Size: {}", sizeof(Instruction));
-    spdlog::info("Data size: {}", sizeof(Inner));
-    spdlog::info("Opcode size {}", sizeof(OpCode));
-    spdlog::info("Offset size {}", sizeof(uint32_t));
-    spdlog::info("Flags size {}", sizeof(Flags));
-  }
   /// Getter of OpCode.
   OpCode getOpCode() const noexcept { return Code; }
 

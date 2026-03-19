@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: Apache-2.0
 // SPDX-FileCopyrightText: 2019-2024 Second State INC
 
+#include "ast/instruction.h"
 #include "loader/loader.h"
 
+#include <spdlog/spdlog.h>
 #include <utility>
 
 using namespace std::literals;
@@ -224,6 +226,22 @@ Expect<AST::InstrVec> Loader::loadInstrSeq(std::optional<uint64_t> SizeBound) {
                           ASTNodeAttr::Instruction);
     }
   }
+  spdlog::debug("Instruction size: {} bytes", sizeof(AST::Instruction));
+  spdlog::debug("Data size: {} bytes", sizeof(AST::Instruction::Inner));
+  spdlog::debug("");
+  spdlog::debug("Number of instructions: {}", Instrs.size());
+  spdlog::debug("Total memory:           {} bytes",
+                Instrs.size() * sizeof(AST::Instruction));
+  spdlog::debug("");
+
+  for (size_t i = 0; i < Instrs.size(); i++) {
+    spdlog::debug("Instruction [{}]:", i);
+    spdlog::debug("  size of this instruction): {} bytes", sizeof(Instrs[i]));
+    spdlog::debug("  size of opcode {}", sizeof(Instrs[i].getOpCode()));
+    spdlog::debug("  size of offset {}", sizeof(Instrs[i].getOffset()));
+    spdlog::debug("");
+  }
+  spdlog::debug("\n");
   return Instrs;
 }
 
@@ -298,7 +316,7 @@ Expect<void> Loader::loadInstruction(AST::Instruction &Instr) {
         // Value type case. Seek back to the origin offset and read the
         // valtype.
         FMgr.seek(StartOffset);
-        // The AST node information is handled.
+        // The AST node debugrmation is handled.
         EXPECTED_TRY(auto Type, loadValType(ASTNodeAttr::Instruction));
         Dst.setData(Type);
       }
@@ -401,7 +419,7 @@ Expect<void> Loader::loadInstruction(AST::Instruction &Instr) {
   case OpCode::Ref__null:
   case OpCode::Ref__test_null:
   case OpCode::Ref__cast_null: {
-    // The AST node information is handled.
+    // The AST node debugrmation is handled.
     EXPECTED_TRY(auto Type,
                  loadHeapType(TypeCode::RefNull, ASTNodeAttr::Instruction));
     Instr.setValType(Type);
@@ -409,7 +427,7 @@ Expect<void> Loader::loadInstruction(AST::Instruction &Instr) {
   }
   case OpCode::Ref__test:
   case OpCode::Ref__cast: {
-    // The AST node information is handled.
+    // The AST node debugrmation is handled.
     EXPECTED_TRY(auto Type,
                  loadHeapType(TypeCode::Ref, ASTNodeAttr::Instruction));
     Instr.setValType(Type);
@@ -479,7 +497,7 @@ Expect<void> Loader::loadInstruction(AST::Instruction &Instr) {
     EXPECTED_TRY(uint32_t VecCnt, loadVecCnt().map_error(ReportError));
     Instr.setValTypeListSize(VecCnt);
     for (uint32_t I = 0; I < VecCnt; ++I) {
-      // The AST node information is handled.
+      // The AST node debugrmation is handled.
       EXPECTED_TRY(Instr.getValTypeList()[I],
                    loadValType(ASTNodeAttr::Instruction));
     }
